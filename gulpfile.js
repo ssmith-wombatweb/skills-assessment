@@ -5,6 +5,7 @@ const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const browserSync = require('browser-sync').create();
 const babel = require('gulp-babel');
+const uglify = require('gulp-uglify');
 
 sass.compiler = require('node-sass');
 
@@ -66,9 +67,23 @@ function buildSCSS() {
     .pipe(gulp.dest('./build/css'));
 }
 
+function buildJS() {
+  postCssPlugins.push(cssnano());
+  return gulp
+    .src('./src/js/index.js')
+    .pipe(
+      babel({
+        presets: ['@babel/env'],
+      }),
+    )
+    .pipe(uglify())
+    .pipe(gulp.dest('./build/js'))
+    .pipe(browserSync.stream());
+}
+
 gulp.task(
   'watch',
   gulp.series(compileSCSS, compileJS, copyHTML, gulp.parallel(watchSCSS, watchJS, watchHTML, runBrowserSync)),
 );
-gulp.task('build', gulp.parallel(copyHTML, buildSCSS, compileJS));
-gulp.task('start', gulp.series(copyHTML, gulp.parallel(buildSCSS, compileJS, runBrowserSync)));
+gulp.task('build', gulp.parallel(copyHTML, buildSCSS, buildJS));
+gulp.task('start', gulp.series(copyHTML, gulp.parallel(buildSCSS, buildJS, runBrowserSync)));

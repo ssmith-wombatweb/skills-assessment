@@ -26,4 +26,4 @@ Run `npm run build` to compile the SCSS, JS and copy the HTML into the build dir
 
 ### Serve
 
-Run `npm start` to compile the SCSS< JS and copy the HTML into the build directory. This will automatically start a dev server and should open it up in the browser. The dev server uses `0.0.0.0` which can be access locally through `localhost` and the automatically selected port (i.e. `localhost:3000`). It can also be accessed through the IP of your current machine and the port from any other machine in your local network (i.e. `192.168.86.111:3000`).
+Run `npm start` to compile the SCSS JS and copy the HTML into the build directory. This will automatically start a dev server and should open it up in the browser. The dev server uses `0.0.0.0` which can be access locally through `localhost` and the automatically selected port (i.e. `localhost:3000`). It can also be accessed through the IP of your current machine and the port from any other machine in your local network (i.e. `192.168.86.111:3000`).
