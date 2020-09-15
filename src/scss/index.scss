@@ -41,7 +41,7 @@ body {
   > header {
     border-radius: 0.625rem 0.625rem 0 0;
     padding: 1.125rem 1rem;
-    background: linear-gradient(to top, rgba(#000000, 0.21), rgba(#ffffff, 0.21)), $color_dark-gray;
+    background: linear-gradient(to top, #262626, #3d3d3d), $color_dark-gray;
 
     > h1 {
       margin: 0;
@@ -263,5 +263,6 @@ body {
     border-radius: 0 0 0.625rem 0.625rem;
     padding: 0.875rem;
     text-align: right;
+    background-color: #202020;
   }
 }
